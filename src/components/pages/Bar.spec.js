@@ -1,49 +1,19 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { BarPage } from './Bar';
-import BarText from '../elements/BarText';
-import initialState from '../../reducers/initialState';
+import { shallow } from 'enzyme';
+import Bar from './Bar';
+import Header from '../elements/shared/Header';
+import BarContainer from '../containers/BarContainer';
 
 describe('<Bar />', () => {
-  const actions = {
-    example: jest.fn(),
-    anotherExample: jest.fn()
-  };
+  it('should have a <Header /> element', () => {
+    const wrapper = shallow(<Bar />);
 
-  it('should contain <BarText />', () => {
-    const wrapper = shallow(
-      <BarPage
-        actions={actions}
-        bar={initialState.bar}
-      />
-    );
-
-    expect(wrapper.find(BarText).length).toEqual(2);
+    expect(wrapper.find(Header).length).toEqual(1);
   });
 
-  it('calls example upon loading', () => {
-    mount(
-      <BarPage
-        actions={actions}
-        bar={initialState.bar}
-      />
-    );
+  it('should have a <BarContainer /> element', () => {
+    const wrapper = shallow(<Bar />);
 
-    expect(actions.example).toHaveBeenCalledWith(
-      'A delayed example'
-    );
-  });
-
-  it('calls another example upon loading', () => {
-    mount(
-      <BarPage
-        actions={actions}
-        bar={initialState.bar}
-      />
-    );
-
-    expect(actions.anotherExample).toHaveBeenCalledWith(
-      'anotherExample', 'Not a delayed example'
-    );
+    expect(wrapper.find(BarContainer).length).toEqual(1);
   });
 });

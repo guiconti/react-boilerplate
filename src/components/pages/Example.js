@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import Header from '../elements/shared/Header';
 import '../../styles/example-page.css';
 
 // Since this component is simple and static, there's no parent container for it.
@@ -31,7 +32,7 @@ const ExamplePage = () => {
           <Paper className="paper">xs=3</Paper>
         </Grid>
       </Grid>
-      <h2 className="alt-header">Example</h2>
+      <Header title="Example" />
       <p>
         This example page.
       </p>

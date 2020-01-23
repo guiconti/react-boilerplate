@@ -1,49 +1,19 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { FooPage } from './Foo';
-import FooText from '../elements/FooText';
-import initialState from '../../reducers/initialState';
+import { shallow } from 'enzyme';
+import Foo from './Foo';
+import Header from '../elements/shared/Header';
+import FooContainer from '../containers/FooContainer';
 
 describe('<Foo />', () => {
-  const actions = {
-    example: jest.fn(),
-    anotherExample: jest.fn()
-  };
+  it('should have a <Header /> element', () => {
+    const wrapper = shallow(<Foo />);
 
-  it('should contain <FooText />', () => {
-    const wrapper = shallow(
-      <FooPage
-        actions={actions}
-        foo={initialState.foo}
-      />
-    );
-
-    expect(wrapper.find(FooText).length).toEqual(2);
+    expect(wrapper.find(Header).length).toEqual(1);
   });
 
-  it('calls example upon loading', () => {
-    mount(
-      <FooPage
-        actions={actions}
-        foo={initialState.foo}
-      />
-    );
+  it('should have a <FooContainer /> element', () => {
+    const wrapper = shallow(<Foo />);
 
-    expect(actions.example).toHaveBeenCalledWith(
-      'Test'
-    );
-  });
-
-  it('calls another example upon loading', () => {
-    mount(
-      <FooPage
-        actions={actions}
-        foo={initialState.foo}
-      />
-    );
-
-    expect(actions.anotherExample).toHaveBeenCalledWith(
-      'anotherExample', 'Delayed'
-    );
+    expect(wrapper.find(FooContainer).length).toEqual(1);
   });
 });

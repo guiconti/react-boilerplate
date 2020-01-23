@@ -11,17 +11,27 @@ describe('Reducers Foo', () => {
   });
 
   it('should handle FOO_EXAMPLE', () => {
-    const action = { type: FOO_EXAMPLE, example: 'Test example' };
-    const expected = Object.assign(initialState.foo, { example: action.example });
+    const action = { type: FOO_EXAMPLE, payload: { value: 'Test example' } };
+    const expected = Object.assign(initialState.foo, {
+      example: action.payload.value
+    });
 
     expect(reducer(initialState.foo, action)).toEqual(expected);
   });
 
   it('should handle FOO_ANOTHER_EXAMPLE', () => {
-    const action = { type: FOO_ANOTHER_EXAMPLE, fieldName: 'anotherExample', value: true };
+    const action = {
+      type: FOO_ANOTHER_EXAMPLE,
+      payload: {
+        fieldName: 'anotherExample',
+        value: true
+      },
+    };
 
     const expectedAnotherExample = true;
 
-    expect(reducer(initialState.foo, action).anotherExample).toEqual(expectedAnotherExample);
+    expect(reducer(initialState.foo, action).anotherExample).toEqual(
+      expectedAnotherExample
+    );
   });
 });

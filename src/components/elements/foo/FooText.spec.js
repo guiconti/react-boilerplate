@@ -14,7 +14,7 @@ describe('<FooText />', () => {
       />
     );
     const actual = wrapper.find('p').text();
-    const expected = `${fixedText} ${dynamicText}`;
+    const expected = `This is a foo text - ${fixedText} ${dynamicText}`;
 
     expect(actual).toEqual(expected);
   });

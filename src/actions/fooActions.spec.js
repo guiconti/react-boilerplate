@@ -1,5 +1,5 @@
 import { FOO_EXAMPLE, FOO_ANOTHER_EXAMPLE } from '../types/foo';
-import { example, anotherExample } from '../actions/fooActions';
+import { getExample, getAnotherExample } from '../actions/fooActions';
 
 const state = {
   example: '',
@@ -14,13 +14,15 @@ describe('Foo Actions', () => {
     const dispatch = jest.fn();
     const expected = {
       type: FOO_EXAMPLE,
-      example: 'Example retrieved',
+      payload: {
+        value: 'Example retrieved',
+      },
     };
 
     // we expect this to return a function since it is a thunk
-    expect(typeof (example)).toEqual('function');
+    expect(typeof (getExample)).toEqual('function');
     // then we simulate calling it with dispatch as the store would do
-    await example(state)(dispatch);
+    await getExample(state)(dispatch);
     // finally assert that the dispatch was called with our expected action
     expect(dispatch).toBeCalledWith(expected);
   });
@@ -28,10 +30,12 @@ describe('Foo Actions', () => {
   it('should return defined object on another example call', () => {
     const expected =  {
       type: FOO_ANOTHER_EXAMPLE,
-      fieldName: 'anotherExample',
-      value: 10
+      payload: {
+        fieldName: 'anotherExample',
+        value: 10,
+      },
     };
-    const actual = anotherExample(expected.fieldName, expected.value);
+    const actual = getAnotherExample(expected.payload.fieldName, expected.payload.value);
 
     expect(actual).toEqual(expected);
   });

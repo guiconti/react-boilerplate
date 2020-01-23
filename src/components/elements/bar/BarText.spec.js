@@ -14,7 +14,7 @@ describe('<BarText />', () => {
       />
     );
     const actual = wrapper.find('p').text();
-    const expected = `${fixedText} ${dynamicText}`;
+    const expected = `This is a bar text - ${fixedText} ${dynamicText}`;
 
     expect(actual).toEqual(expected);
   });

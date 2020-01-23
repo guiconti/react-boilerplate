@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Example from './Example';
+import Header from '../elements/shared/Header';
 
 describe('<Example />', () => {
   it('should have a div with \'root\' class', () => {
@@ -11,18 +12,16 @@ describe('<Example />', () => {
     expect(actual).toEqual(expected);
   });
 
-  it('should have a header called \'Example\'', () => {
+  it('should have a <Header />', () => {
     const wrapper = shallow(<Example />);
-    const actual = wrapper.find('h2').text();
-    const expected = 'Example';
 
-    expect(actual).toEqual(expected);
+    expect(wrapper.find(Header).length).toEqual(1);
   });
 
-  it('should have a header with \'alt-header\' class', () => {
+  it('should have a <Header /> with \'title\' containing Example', () => {
     const wrapper = shallow(<Example />);
-    const actual = wrapper.find('h2').prop('className');
-    const expected = 'alt-header';
+    const actual = wrapper.find(Header).prop('title');
+    const expected = 'Example';
 
     expect(actual).toEqual(expected);
   });
