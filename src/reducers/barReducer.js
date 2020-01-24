@@ -12,8 +12,6 @@ export default function barReducer(state = initialState.bar, action) {
 
   switch (action.type) {
     case BAR_EXAMPLE:
-      // For this example, just simulating a save by changing date modified.
-      // In a real app using Redux, you might use redux-thunk and handle the async call in barActions.js
       return objectAssign({}, state, { example: action.payload.value });
 
     case BAR_ANOTHER_EXAMPLE:

@@ -12,8 +12,6 @@ export default function fooReducer(state = initialState.foo, action) {
 
   switch (action.type) {
     case FOO_EXAMPLE:
-      // For this example, just simulating a save by changing date modified.
-      // In a real app using Redux, you might use redux-thunk and handle the async call in fooActions.js
       return objectAssign({}, state, {example: action.payload.value});
 
     case FOO_ANOTHER_EXAMPLE:

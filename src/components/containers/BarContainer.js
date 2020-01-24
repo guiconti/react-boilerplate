@@ -9,7 +9,7 @@ const BarContainer = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getExample('example'));
+    dispatch(getExample('A delayed example'));
     dispatch(getAnotherExample('anotherExample', 'A not delayed example'));
   }, [])
 

@@ -33,7 +33,7 @@ describe('<FooContainer />', () => {
       </Provider>
     );
 
-    expect(actions.getExample).toHaveBeenCalledWith('example');
+    expect(actions.getExample).toHaveBeenCalledWith('A delayed example');
     expect(actions.getExample).toHaveBeenCalledTimes(1);
   });
 

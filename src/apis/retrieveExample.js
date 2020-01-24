@@ -1,7 +1,7 @@
-export function retrieveExample () {
+export default function retrieveExample (value) {
   return new Promise((resolve) => {
     setTimeout(() => {
-      return resolve("Example retrieved");
+      return resolve(value);
     }, 2000);
   });
 }

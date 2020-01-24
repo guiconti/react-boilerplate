@@ -1,19 +1,20 @@
-import { BAR_EXAMPLE, BAR_ANOTHER_EXAMPLE } from '../types/bar';
-import { retrieveExample } from '../services/barServices';
+import { BAR_FETCH_EXAMPLE, BAR_EXAMPLE, BAR_ANOTHER_EXAMPLE } from '../types/bar';
 
-// example of a thunk using the redux-thunk middleware
 export function getExample(value) {
-  //  async example
-  return async function (dispatch) {
-    // thunks allow for pre-processing actions, calling apis, and dispatching multiple actions
-    // in this case at this point we could call a service that would persist the data using an API
-    const example = await retrieveExample(value);
-    return dispatch({
-      type: BAR_EXAMPLE,
-      payload: {
-        value: example,
-      },
-    });
+  return {
+    type: BAR_FETCH_EXAMPLE,
+    payload: {
+      value,
+    },
+  };
+}
+
+export function receiveExample(value) {
+  return {
+    type: BAR_EXAMPLE,
+    payload: {
+      value,
+    },
   };
 }
 
@@ -22,7 +23,7 @@ export function getAnotherExample(fieldName, value) {
     type: BAR_ANOTHER_EXAMPLE,
     payload: {
       fieldName,
-      value
+      value,
     }
   };
 }
