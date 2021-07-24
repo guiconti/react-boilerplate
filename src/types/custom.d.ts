@@ -16,7 +16,7 @@ declare module "*.svg" {
 	export default content;
 }
 
-declare module "*.scss" {
+declare module "*.less" {
 	interface Classes {
 		[index: string]: string;
 	}

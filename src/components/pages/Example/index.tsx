@@ -4,7 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Header from "../../elements/Header";
 
-import styles from "./Example.scss";
+import styles from "./Example.less";
 
 const ExamplePage: React.FC = () => {
   return (

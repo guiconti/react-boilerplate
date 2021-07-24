@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Foo from ".";
-import Header from "../elements/Header";
-import FooContainer from "../containers/FooContainer";
+import Header from "../../elements/Header";
+import FooContainer from "../../containers/FooContainer";
 
 describe("<Foo />", () => {
   it("should have a <Header /> element", () => {

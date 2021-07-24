@@ -1,6 +1,10 @@
 import React from "react";
-import { Router, NavLink, Route, Switch } from "react-router-dom";
-import { createBrowserHistory } from "history";
+import {
+  BrowserRouter as Router,
+  NavLink,
+  Route,
+  Switch,
+} from "react-router-dom";
 
 import Home from "./pages/Home";
 import Example from "./pages/Example";
@@ -8,19 +12,17 @@ import Foo from "./pages/Foo";
 import Bar from "./pages/Bar";
 import NotFound from "./pages/NotFound";
 
-import styles from "./App.scss";
-
-const history = createBrowserHistory();
+import styles from "./App.less";
 
 const App: React.FC = () => {
   return (
-    <Router history={history}>
+    <Router>
       <div>
         <NavLink exact to="/" activeClassName={styles.activeStyle}>
           Home
         </NavLink>
         {" | "}
-        <NavLink to="/example" activeClassName={styles.activeStyle}>
+        <NavLink exact to="/example" activeClassName={styles.activeStyle}>
           Example
         </NavLink>
         {" | "}

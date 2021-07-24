@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import Example from ".";
-import Header from "../elements/Header";
+import Header from "../../elements/Header";
 
 describe("<Example />", () => {
   it('should have a div with "root" class', () => {
